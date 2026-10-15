@@ -1,0 +1,75 @@
+body {
+  font-family: 'Oxygen', sans-serif;
+  background-color: #f6f6f6;
+  font-size: 16px;
+}
+
+#header-nav {
+  background-color: #e7e7e7;
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 20px;
+}
+
+.navbar-brand h1 {
+  font-family: 'Lora', serif;
+  color: #555555;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 0.8;
+}
+
+.navbar-toggle {
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+#nav-list {
+  background-color: #ffffff;
+  margin: 0 -15px;
+  border-top: 1px solid #e7e7e7;
+}
+
+#nav-list li a {
+  color: #555555;
+  font-weight: bold;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 12px 0;
+}
+
+#nav-list li a:hover {
+  background-color: #e7e7e7;
+}
+
+#page-title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.menu-box {
+  background-color: #dbdbdb;
+  padding: 20px 30px;
+  border: 1px solid #cccccc;
+  margin-bottom: 30px;
+}
+
+.menu-box section {
+  margin-bottom: 30px;
+}
+
+.menu-box section h3 {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  color: #222222;
+}
+
+.menu-box section p {
+  color: #444444;
+  line-height: 1.6;
+  text-align: justify;
+}
