@@ -5,10 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>David Chu's China Bistro</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Fonts CDN -->
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    
+    <!-- CSS Internal untuk menggantikan file css/styles.css dan gambar offline -->
+    <style>
+      body { font-size: 16px; color: #fff; background-color: #61122f; font-family: 'Oxygen', sans-serif; }
+      #header-nav { background-color: #f6b319; border-radius: 0; border: 0; }
+      #logo-img { background: url('https://raw.githubusercontent.com/jhu-ep-coursera/fullstack-course4/master/assignments/assignment5/assignment5-solution-starter/images/restaurant-logo_large.png') no-repeat; width: 150px; height: 150px; margin: 10px 15px 10px 0; }
+      .navbar-brand { paddingTop: 25px; }
+      .navbar-brand h1 { font-family: 'Lora', serif; color: #557c3e; font-size: 1.5em; font-weight: bold; text-transform: uppercase; line-height: .75; margin-top: 0; margin-bottom: 0; }
+      .navbar-brand a:hover, .navbar-brand a:focus { text-decoration: none; }
+      .navbar-brand p { color: #000; font-size: .7em; margin-top: 15px; font-weight: bold; text-transform: uppercase; }
+      .navbar-brand p span { vertical-align: middle; }
+      #nav-list { margin-top: 10px; }
+      #nav-list a { color: #557c3e; text-align: center; }
+      #nav-list a:hover { background: #e7e7e7; }
+      #nav-list a span { font-size: 1.8em; }
+      #phone a { text-align: right; padding-bottom: 0; }
+      #phone div { color: #557c3e; text-align: right; padding-right: 15px; font-size: .9em; }
+      .navbar-header button.navbar-toggle, .navbar-header .icon-bar { border: 1px solid #61122f; }
+      .navbar-header button.navbar-toggle { background-color: #f6b319; }
+      .panel-footer { margin-top: 30px; background-color: #222; border-top: 0; }
+      .panel-footer div.row { margin-bottom: 35px; }
+      #hours, #address { font-size: .9em; }
+      #hours span, #address span { font-size: 1.3em; }
+      #address p { color: #557c3e; font-size: .8em; line-height: 1.8; margin-top: 15px; }
+      #testimonials { font-style: italic; }
+      #testimonials p:nth-child(2) { margin-top: 25px; }
+      .jumbotron { box-shadow: 0 0 50px #3f0c11; border: 2px solid #3f0c11; padding: 0; }
+      #menu-tile, #specials-tile, #map-tile { height: 250px; width: 100%; margin-bottom: 15px; position: relative; border: 2px solid #3F0C11; overflow: hidden; }
+      #menu-tile:hover, #specials-tile:hover, #map-tile:hover { opacity: 0.9; }
+      #menu-tile { background: url('https://raw.githubusercontent.com/jhu-ep-coursera/fullstack-course4/master/assignments/assignment5/assignment5-solution-starter/images/menu-tile.jpg') no-repeat center; }
+      #specials-tile { background: url('https://raw.githubusercontent.com/jhu-ep-coursera/fullstack-course4/master/assignments/assignment5/assignment5-solution-starter/images/specials-tile.jpg') no-repeat center; }
+      #menu-tile span, #specials-tile span, #map-tile span { position: absolute; bottom: 0; right: 0; width: 100%; height: 60px; line-height: 60px; text-align: center; font-size: 1.6em; text-transform: uppercase; background-color: #000; color: #fff; opacity: 0.8; }
+      .category-tile { position: relative; border: 2px solid #3F0C11; overflow: hidden; width: 200px; height: 200px; margin: 0 auto 15px; }
+      .category-tile span { position: absolute; bottom: 0; right: 0; width: 100%; height: 50px; line-height: 50px; text-align: center; font-size: 1.2em; text-transform: uppercase; background-color: #000; color: #fff; opacity: 0.8; }
+      .menu-item-tile { margin-bottom: 25px; }
+      .menu-item-tile hr { width: 80%; }
+      .menu-item-title { font-size: 1.2em; font-weight: bold; color: #f6b319; }
+      .menu-item-details { font-size: .9em; font-style: italic; }
+      .menu-item-price { font-size: 1.1em; font-weight: bold; color: #557c3e; }
+    </style>
   </head>
 <body>
   <header>
@@ -22,7 +65,7 @@
           <div class="navbar-brand">
             <a href="index.html"><h1>David Chu's China Bistro</h1></a>
             <p>
-              <img src="images/star-k-logo.png" alt="Kosher certification">
+              <img src="https://raw.githubusercontent.com/jhu-ep-coursera/fullstack-course4/master/assignments/assignment5/assignment5-solution-starter/images/star-k-kosher.png" alt="Kosher certification">
               <span>Kosher Certified</span>
             </p>
           </div>
@@ -34,7 +77,7 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        
+
         <div id="collapsable-nav" class="collapse navbar-collapse">
            <ul id="nav-list" class="nav navbar-nav navbar-right">
             <li id="navHomeButton" class="visible-xs active">
@@ -57,15 +100,14 @@
               <a href="tel:410-602-5008">
                 <span>410-602-5008</span></a><div>* We Deliver</div>
             </li>
-          </ul><!-- #nav-list -->
-        </div><!-- .collapse .navbar-collapse -->
-      </div><!-- .container -->
-    </nav><!-- #header-nav -->
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <div id="call-btn" class="visible-xs">
-    <a class="btn" href="tel:410-602-5008">
-    <span class="glyphicon glyphicon-earphone"></span>
+    <a class="btn btn-default glyphicon glyphicon-earphone" href="tel:410-602-5008">
     410-602-5008
     </a>
   </div>
@@ -87,21 +129,21 @@
           <span>Address:</span><br>
           7105 Reisterstown Road<br>
           Baltimore, MD 21215
-          <p>* Delivery area within 3-4 miles, with minimum order of $20 plus $3 charge for all deliveries.</p>
+          <p>* Delivery area within 3-4 miles, with minimum order of $20 plus $3 delivery charge.</p>
           <hr class="visible-xs">
         </section>
         <section id="testimonials" class="col-sm-4">
           <p>"The best Chinese restaurant I've been to! And that's saying a lot, since I've been to many!"</p>
-          <p>"Amazing food! Great service! Couldn't ask for more! I'll be back again and again!"</p>
+          <p>"Amazing food. Great service! Couldn't ask for more! I'll be back again and again!"</p>
         </section>
       </div>
-      <div class="text-center">&copy; Copyright David Chu's China Bistro 2016</div>
+      <div class="text-center">&copy; Copyright David Chu's China Bistro 2016 | <a href="https://www.coursera.org/learn/single-page-web-apps-with-js" target="_blank">Coursera Web Dev Course</a></div>
     </div>
   </footer>
 
-  <!-- jQuery (Bootstrap JS plugins depend on it) -->
-  <script src="js/jquery-2.1.4.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <!-- Scripts via Online CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="js/ajax-utils.js"></script>
   <script src="js/script.js"></script>
 </body>
