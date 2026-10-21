@@ -1,6 +1,4 @@
-$(function () { // Same as document.addEventListener("DOMContentLoaded",...)
-
-  // Collapse mobile nav menu on blur
+$(function () {
   $("#navbarToggle").blur(function (event) {
     var screenWidth = window.innerWidth;
     if (screenWidth < 768) {
@@ -23,7 +21,6 @@ var menuItemsUrl =
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
 
-// Convenience function for inserting innerHTML
 var insertHtml = function (selector, html) {
   var targetElem = document.querySelector(selector);
   if (targetElem) {
@@ -31,21 +28,18 @@ var insertHtml = function (selector, html) {
   }
 };
 
-// Show loading icon inside element specified by 'selector'
 var showLoading = function (selector) {
   var html = "<div class='text-center'>";
   html += "<img src='images_menu/ajax-loader.gif'></div>";
   insertHtml(selector, html);
 };
 
-// Return substitute of '{{propName}}' with propValue in given 'string'
 var insertProperty = function (string, propName, propValue) {
   var propToReplace = "{{" + propName + "}}";
   string = string.replace(new RegExp(propToReplace, "g"), propValue);
   return string;
 };
 
-// Remove the class 'active' from home and switch to Menu button
 var switchMenuToActive = function () {
   var classes = document.querySelector("#navHomeButton").className;
   classes = classes.replace(new RegExp("active", "g"), "");
@@ -58,48 +52,37 @@ var switchMenuToActive = function () {
   }
 };
 
-// On page load
 document.addEventListener("DOMContentLoaded", function (event) {
-
-  // STEP 1 - Request all categories and pass buildAndShowHomeHTML as callback
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     allCategoriesUrl,
     buildAndShowHomeHTML,
-    true); // Explicitly setting the flag to get JSON from server
+    true);
 });
 
-// STEP 2 & 3 & 4 - Build home HTML with random category short_name
 function buildAndShowHomeHTML(categories) {
-
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtmlSnippet) {
-
-      // STEP 3 - Choose a random category
       var randomCategory = chooseRandomCategory(categories);
       var randomCategoryShortName = "'" + randomCategory.short_name + "'";
 
-      // STEP 4 - Substitute {{randomCategoryShortName}} with chosen category short_name
       var homeHtmlToInsertIntoPage = insertProperty(
         homeHtmlSnippet,
         "randomCategoryShortName",
         randomCategoryShortName
       );
 
-      // Insert the produced HTML into the main element
       insertHtml("#main-content", homeHtmlToInsertIntoPage);
     },
     false);
 }
 
-// STEP 2 Helper Function - Given array of category objects, returns a random category object
 function chooseRandomCategory(categories) {
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
   return categories[randomArrayIndex];
 }
 
-// Load the menu categories view
 dc.loadMenuCategories = function () {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
@@ -107,7 +90,6 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
-// Load the menu items view
 dc.loadMenuItems = function (categoryShort) {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
@@ -115,7 +97,6 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
-// Builds HTML for the categories page
 function buildAndShowCategoriesHTML (categories) {
   $ajaxUtils.sendGetRequest(
     categoriesTitleHtml,
@@ -152,7 +133,6 @@ function buildCategoriesViewHtml(categories, categoriesTitleHtml, categoryHtml) 
   return finalHtml;
 }
 
-// Builds HTML for the single category menu items page
 function buildAndShowMenuItemsHTML (categoryMenuItems) {
   $ajaxUtils.sendGetRequest(
     menuItemsTitleHtml,
